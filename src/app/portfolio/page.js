@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function PortfolioPage() {
   const [portfolio, setPortfolio] = useState([]);
@@ -21,17 +22,28 @@ export default function PortfolioPage() {
       </Link>
       <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {Array.isArray(portfolio) ? (
-          portfolio.map((item) => (
-            <li key={item.id} className="p-4 border rounded-lg shadow">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-40 object-cover rounded-md"
-              />
-              <h2 className="text-lg font-semibold mt-2">{item.title}</h2>
-              <p className="text-gray-600">{item.description}</p>
-            </li>
-          ))
+          portfolio.map((item) => {
+            // Cek apakah item.image ada dan valid
+            const imageUrl = item.image?.startsWith("http")
+              ? item.image
+              : "/default-image.jpg"; // Ganti dengan gambar default lokal
+
+            return (
+              <li key={item.id} className="p-4 border rounded-lg shadow">
+                <div className="relative w-full h-40">
+                  <Image
+                    src={imageUrl}
+                    alt={item.title || "Portfolio Image"}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-md"
+                  />
+                </div>
+                <h2 className="text-lg font-semibold mt-2">{item.title}</h2>
+                <p className="text-gray-600">{item.description}</p>
+              </li>
+            );
+          })
         ) : (
           <p>Data tidak tersedia</p>
         )}
