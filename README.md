@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Portofolio - Next.js
 
-## Getting Started
+## Deskripsi
+Proyek ini adalah sebuah website portofolio yang dibangun menggunakan Next.js. Website ini bertujuan untuk menampilkan informasi pribadi, pengalaman kerja, proyek, serta keterampilan dalam bentuk yang menarik dan responsif.
 
-First, run the development server:
+## Teknologi yang Digunakan
+- **Next.js** - Framework React untuk aplikasi web
+- **Tailwind CSS** - Framework CSS untuk styling
+- **Framer Motion** - Untuk animasi interaktif
+- **React Icons** - Untuk ikon tambahan
+- **Vercel** - Hosting dan deployment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Fitur
+- Halaman beranda dengan perkenalan singkat
+- Halaman portofolio untuk menampilkan proyek-proyek
+- Halaman tentang untuk informasi lebih lanjut
+- Halaman kontak dengan formulir yang dapat diisi
+- Desain responsif untuk tampilan mobile dan desktop
+
+## Instalasi dan Menjalankan Proyek
+
+1. **Clone repository ini**
+   ```sh
+   git clone https://github.com/username/web-portofolio.git
+   cd web-portofolio
+   ```
+
+2. **Install dependencies**
+   ```sh
+   npm install
+   # atau
+   yarn install
+   ```
+
+3. **Jalankan proyek secara lokal**
+   ```sh
+   npm run dev
+   # atau
+   yarn dev
+   ```
+   Website akan berjalan di `http://localhost:3000`
+
+## Deployment
+Untuk melakukan deployment, gunakan Vercel:
+```sh
+vercel
+```
+Ikuti instruksi untuk menghubungkan ke akun Vercel dan menyebarkan aplikasi.
+
+## Struktur Folder
+```
+/web-portofolio
+├── public/          # Folder untuk aset statis
+├── src/
+│   ├── components/  # Komponen UI
+│   ├── pages/       # Halaman utama
+│   ├── styles/      # File CSS atau Tailwind
+│   ├── data/        # Data proyek atau pengalaman
+├── .env.local       # Konfigurasi lingkungan (opsional)
+├── next.config.js   # Konfigurasi Next.js
+├── package.json     # Dependensi proyek
+└── README.md        # Dokumentasi proyek
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Kontribusi
+Jika ingin berkontribusi dalam proyek ini, silakan buat pull request atau fork repository ini.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Lisensi
+Proyek ini menggunakan lisensi MIT. Silakan gunakan dan modifikasi sesuai kebutuhan.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
+Dibuat dengan ❤️ menggunakan Next.js.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
