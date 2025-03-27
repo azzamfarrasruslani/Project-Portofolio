@@ -10,7 +10,7 @@ import { SessionProvider } from "next-auth/react";
 export default function RootLayout({ children }) {
   return (
     <SessionProvider>
-      <html lang="en">
+      <html className="scroll-smooth" lang="en">
         <head />
         <body className="margin-0 p-0">
           <CustomCursor />
