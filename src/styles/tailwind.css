@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-customBlack-100: #121212;
+  --color-customBlue-100: #0C1821;
+
+
+ 
+}
