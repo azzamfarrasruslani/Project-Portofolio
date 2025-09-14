@@ -1,4 +1,5 @@
 "use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHtml5,
@@ -10,29 +11,33 @@ import {
   faGitAlt,
 } from "@fortawesome/free-brands-svg-icons";
 import { faPaintBrush, faCode } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 export default function SkillsPage() {
   const skills = [
     {
       category: "Frontend",
+      description: "Building beautiful and responsive user interfaces.",
       items: [
         { name: "HTML", icon: faHtml5 },
         { name: "CSS", icon: faCss3Alt },
         { name: "JavaScript", icon: faJs },
         { name: "React", icon: faReact },
-        { name: "Next.js", icon: faCode }, // bisa pakai icon custom
-        { name: "Tailwind", icon: faPaintBrush }, // bisa ganti ke icon khusus Tailwind
+        { name: "Next.js", icon: faCode }, // Custom icon
+        { name: "Tailwind", icon: faPaintBrush },
       ],
     },
     {
       category: "Backend",
+      description: "Server-side logic and database interaction.",
       items: [
+        { name: "Node.js", icon: faNodeJs }, // Sudah masuk di sini
         { name: "Laravel", icon: faLaravel },
-        { name: "Node.js", icon: faNodeJs },
       ],
     },
     {
       category: "Tools",
+      description: "Tools to support development productivity.",
       items: [
         { name: "Git", icon: faGitAlt },
         { name: "Figma", icon: faPaintBrush },
@@ -44,38 +49,68 @@ export default function SkillsPage() {
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col justify-center items-center bg-[#000000] text-white px-6 py-20"
+      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black via-[#0f0f0f] to-black text-white px-6 py-24 relative"
     >
+      {/* Background Accent Blur */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#cceb6c] blur-[120px] opacity-10 rounded-full z-0" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#cceb6c] blur-[120px] opacity-10 rounded-full z-0" />
+
       {/* Judul Section */}
-      <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-[#cceb6c]">
+      <motion.h2
+        className="text-4xl md:text-5xl font-bold mb-4 text-[#cceb6c] z-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         🛠 Skills & Tech Stack
-      </h2>
+      </motion.h2>
+
+      <motion.p
+        className="text-gray-400 text-center text-lg max-w-2xl mb-12 z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+      >
+        Tools and technologies I use to craft seamless digital experiences and scalable backend systems.
+      </motion.p>
 
       {/* Grid Kategori */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl w-full z-10">
         {skills.map((group, idx) => (
-          <div key={idx} className="space-y-4">
+          <motion.div
+            key={idx}
+            className="bg-[#111111]/60 border border-[#cceb6c]/30 rounded-2xl p-6 shadow-lg backdrop-blur-md transition hover:shadow-[#cceb6c]/30"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.2, duration: 0.6 }}
+          >
             {/* Nama Kategori */}
-            <h3 className="text-xl font-semibold text-center text-[#d9ff6f]">
+            <h3 className="text-xl font-semibold text-center text-[#cceb6c] mb-2">
               {group.category}
             </h3>
+            <p className="text-sm text-gray-400 text-center mb-4">
+              {group.description}
+            </p>
 
-            {/* Card Skill */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {/* Skill Icons */}
+            <div className="grid grid-cols-3 gap-4 mt-4">
               {group.items.map((skill, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="flex flex-col items-center justify-center bg-[#111111] border border-[#cceb6c]/30 rounded-lg p-4 hover:bg-[#cceb6c] hover:text-black transition duration-300"
+                  className="flex flex-col items-center justify-center bg-[#1a1a1a] border border-[#cceb6c]/20 rounded-lg p-4 hover:bg-[#cceb6c] hover:text-black transition duration-300 cursor-pointer group shadow-md"
+                  whileHover={{ y: -4 }}
                 >
                   <FontAwesomeIcon
                     icon={skill.icon}
-                    className="text-2xl mb-2 text-[#cceb6c]"
+                    className="text-2xl mb-2 text-[#cceb6c] group-hover:text-black"
                   />
-                  <span className="text-sm font-medium">{skill.name}</span>
-                </div>
+                  <span className="text-xs font-medium text-center">
+                    {skill.name}
+                  </span>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

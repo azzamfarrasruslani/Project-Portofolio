@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { name: "Home", href: "#hero" },
@@ -16,42 +17,60 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md text-white z-50 shadow-md">
-      <div className="container mx-auto flex justify-center items-center px-6 py-4">
+    <nav
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-auto px-6 py-3 rounded-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-black/70 backdrop-blur-xl shadow-lg"
+          : "bg-black/50 backdrop-blur-md"
+      }`}
+    >
+      <div className="flex justify-between items-center md:gap-12">
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8">
+        <ul className="hidden md:flex items-center space-x-4">
           {navItems.map((item, index) => (
-            <li key={index}>
+            <li key={index} className="flex items-center space-x-2">
               <Link
                 href={item.href}
-                className="hover:text-[#D3E97A] transition duration-300"
+                className="text-sm font-medium text-white hover:text-[#D3E97A] transition duration-300"
               >
                 {item.name}
               </Link>
+              {/* Tambahkan separator kecuali item terakhir */}
+              {index < navItems.length - 1 && (
+                <span className="text-gray-500 text-sm">/</span>
+              )}
             </li>
           ))}
         </ul>
 
-        {/* Mobile Button */}
+        {/* Mobile Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden absolute right-6 text-2xl hover:text-[#D3E97A] transition duration-300"
+          className="md:hidden text-2xl text-white hover:text-[#D3E97A] transition duration-300"
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black border-t border-gray-700">
+        <div className="md:hidden mt-4 bg-black/90 rounded-xl shadow-md backdrop-blur-sm">
           <ul className="flex flex-col items-center space-y-4 px-6 py-4">
             {navItems.map((item, index) => (
               <li key={index}>
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block hover:text-[#D3E97A] transition duration-300"
+                  className="block text-sm font-medium hover:text-[#D3E97A] transition duration-300"
                 >
                   {item.name}
                 </Link>

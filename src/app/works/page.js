@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { RiGithubLine } from "react-icons/ri";
 const portfolioItems = [
   {
     title: "Sistem Surat Paket",
@@ -97,16 +98,16 @@ export default function PortfolioSection() {
                 <Link
                   href={item.liveDemo}
                   target="_blank"
-                  className="flex-1 text-center bg-[#D3E97A] text-black font-semibold py-2 rounded-lg hover:bg-lime-400 transition"
+                  className="flex-1 flex items-center justify-center gap-2 text-center bg-[#D3E97A] text-black font-semibold py-2 rounded-lg hover:bg-lime-400 transition"
                 >
-                  🚀 Live Demo
+                  <FaExternalLinkAlt /> Live Demo
                 </Link>
                 <Link
                   href={item.github}
                   target="_blank"
-                  className="flex-1 text-center border border-gray-700 text-white font-semibold py-2 rounded-lg hover:border-[#D3E97A] hover:text-[#D3E97A] transition"
+                  className="flex-1 flex items-center justify-center gap-2 text-center border border-gray-700 text-white font-semibold py-2 rounded-lg hover:border-[#D3E97A] hover:text-[#D3E97A] transition"
                 >
-                  💻 GitHub
+                  <RiGithubLine /> GitHub
                 </Link>
               </div>
             </div>

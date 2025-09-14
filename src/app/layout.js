@@ -5,6 +5,7 @@ import "@/styles/tailwind.css";
 import "@/lib/fontawesome";
 import CustomCursor from "@/app/components/CustomCursor";
 import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 import { SessionProvider } from "next-auth/react";
 
 export default function RootLayout({ children }) {
@@ -15,7 +16,8 @@ export default function RootLayout({ children }) {
         <body className="margin-0 p-0">
           <CustomCursor />
           <Navbar />
-          {children}
+          {children} 
+          <Footer />
         </body>
       </html>
     </SessionProvider>

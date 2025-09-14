@@ -6,7 +6,7 @@ import SkillsPage from "@/app/skills/page";
 import WorksPage from "@/app/works/page";
 import ExperiencePage from "@/app/experience/page";
 import ContactPage from "@/app/contact/page";
-import Footer from "@/app/components/Footer";
+
 
 export default function HomePage() {
   return (
@@ -23,7 +23,7 @@ export default function HomePage() {
       <WorksPage />
       <ExperiencePage />
       <ContactPage />
-      <Footer />
+     
 
       {/* Lingkaran Gradien Bawah */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-12 bg-gradient-to-r from-[#D3E97A] to-lime-400 rounded-full blur-3xl opacity-70 z-0"></div>

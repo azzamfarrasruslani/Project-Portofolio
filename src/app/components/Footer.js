@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#111111] border-t border-[#cceb6c]/30 text-[#9CA3AF] px-6 py-10 mt-20">
+    <footer className="bg-[#111111] border-t border-[#cceb6c]/30 text-[#9CA3AF] px-6 py-10 ">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         
         {/* Kiri */}
