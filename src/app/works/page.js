@@ -4,38 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { RiGithubLine } from "react-icons/ri";
-const portfolioItems = [
-  {
-    title: "Sistem Surat Paket",
-    image: "/image/WEB-Surpa.png",
-    description:
-      "Aplikasi untuk mengelola surat dan paket masuk dengan fitur tracking real-time.",
-    liveDemo: "#",
-    github: "#",
-    techStack: ["PHP", "MySQL", "Tailwind"],
-    date: "Januari 2023",
-  },
-  {
-    title: "Website UMKM",
-    image: "/image/WEB-UMKM.png",
-    description:
-      "Website profil dan e-commerce untuk UMKM dengan fitur pemesanan produk.",
-    liveDemo: "#",
-    github: "#",
-    techStack: ["Laravel", "MySQL", "Tailwind"],
-    date: "Juli 2023",
-  },
-  {
-    title: "Manajemen Kandang Bebek",
-    image: "/image/WEB-ManBebek.png",
-    description:
-      "Sistem monitoring dan manajemen kandang bebek untuk pencatatan produksi telur.",
-    liveDemo: "#",
-    github: "#",
-    techStack: ["Laravel", "React", "Tailwind"],
-    date: "Oktober 2023",
-  },
-];
+import portfolioItems from "@/data/portfolio.json"; // ← Import dari file JSON
 
 export default function PortfolioSection() {
   return (
@@ -43,7 +12,6 @@ export default function PortfolioSection() {
       id="works"
       className="min-h-screen flex flex-col items-center py-20 text-white bg-black"
     >
-      {/* Judul */}
       <motion.h1
         className="text-4xl font-bold mb-14"
         initial={{ opacity: 0, y: -50 }}
@@ -53,7 +21,6 @@ export default function PortfolioSection() {
         Projects Showcase
       </motion.h1>
 
-      {/* Grid Card Portofolio */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 w-full max-w-7xl">
         {portfolioItems.map((item, index) => (
           <motion.div
@@ -64,7 +31,6 @@ export default function PortfolioSection() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            {/* Gambar */}
             <Image
               src={item.image}
               alt={item.title}
@@ -73,15 +39,11 @@ export default function PortfolioSection() {
               className="w-full h-56 object-cover"
             />
 
-            {/* Konten */}
             <div className="flex flex-col flex-1 p-6">
               <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
               <p className="text-gray-400 text-sm flex-1">{item.description}</p>
-
-              {/* Tanggal */}
               <p className="text-xs text-gray-500 mt-3">{item.date}</p>
 
-              {/* Tech stack pill */}
               <div className="flex flex-wrap gap-2 mt-3">
                 {item.techStack.map((tech, i) => (
                   <span
@@ -93,7 +55,6 @@ export default function PortfolioSection() {
                 ))}
               </div>
 
-              {/* Tombol aksi */}
               <div className="mt-6 flex gap-3">
                 <Link
                   href={item.liveDemo}

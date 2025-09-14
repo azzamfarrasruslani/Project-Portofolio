@@ -1,31 +1,38 @@
 "use client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBolt,
-  faCode,
-  faUsers,
-  faRocket,
-} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import HighlightCards from "./components/HighlightCards";
+import EducationTimeline from "./components/EducationTimeline";
+import CertificateCard from "./components/CertificateCard";
+
+const highlights = [
+  { icon: require("@fortawesome/free-solid-svg-icons").faBolt, text: "Fast Learner" },
+  { icon: require("@fortawesome/free-solid-svg-icons").faCode, text: "Clean & Efficient Code" },
+  { icon: require("@fortawesome/free-solid-svg-icons").faUsers, text: "Great Team Player" },
+  { icon: require("@fortawesome/free-solid-svg-icons").faRocket, text: "Innovative Problem Solver" },
+];
+
+const education = [
+  { title: "MTs Sumatra Thawalib Parabek", time: "2017 - 2019", desc: "Pendidikan menengah berbasis pesantren dan sains." },
+  { title: "SMA Negeri 2 Lubuk Basung", time: "2019 - 2023", desc: "Jurusan IPA, aktif dalam organisasi dan teknologi." },
+  { title: "Politeknik Caltex Riau — Teknik Informatika", time: "2023 - Sekarang", desc: "Fokus pada pengembangan web, jaringan, dan software engineering." },
+];
+
+const certificate = {
+  title: "MikroTik Certified Network Associate (MTCNA)",
+  issuer: "MikroTik",
+  date: "Maret 2024",
+  credentialId: "MTCNA-2507NA1349",
+  link: "https://mikrotik.com/training/certificates/c481349c629e9fc62c9e",
+  image: "/images/sertifikat-mtcna.jpg", // Ganti sesuai path file image kamu
+};
 
 export default function AboutPage() {
-  const highlights = [
-    { icon: faBolt, text: "Fast Learner" },
-    { icon: faCode, text: "Clean & Efficient Code" },
-    { icon: faUsers, text: "Great Team Player" },
-    { icon: faRocket, text: "Innovative Problem Solver" },
-  ];
-
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black via-[#0f0f0f] to-black text-white px-6 py-24 relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center items-center text-white px-6 py-24 relative overflow-hidden"
     >
-      {/* Background Accent Circle */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-[#cceb6c] blur-[120px] opacity-20 rounded-full z-0" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#cceb6c] blur-[120px] opacity-20 rounded-full z-0" />
-
-      {/* Judul Section */}
+      {/* Judul & Deskripsi */}
       <motion.h2
         className="text-4xl md:text-5xl font-bold mb-4 text-[#cceb6c] z-10"
         initial={{ opacity: 0, y: 40 }}
@@ -45,33 +52,10 @@ export default function AboutPage() {
         who thrives on building impactful and modern web solutions with clean and efficient code.
       </motion.p>
 
-      {/* Card utama */}
-      <motion.div
-        className="max-w-4xl w-full bg-[#111111]/60 border border-[#cceb6c]/30 rounded-3xl shadow-xl backdrop-blur-lg p-10 md:p-12 space-y-8 z-10"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      >
-        {/* Highlight Skills */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-          {highlights.map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex items-center gap-4 bg-[#1a1a1a] border border-[#cceb6c]/20 rounded-xl p-5 transition duration-300 hover:scale-[1.02] hover:bg-[#cceb6c] hover:text-black group shadow-md"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FontAwesomeIcon
-                icon={item.icon}
-                className="text-[#cceb6c] text-2xl group-hover:text-black"
-              />
-              <span className="font-medium text-lg group-hover:font-semibold">
-                {item.text}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+      {/* Komponen Terpisah */}
+      <HighlightCards highlights={highlights} />
+      <EducationTimeline entries={education} />
+      <CertificateCard certificate={certificate} />
     </section>
   );
 }
