@@ -4,12 +4,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { useEffect } from "react";
 import AnimatedText from "@/app/components/AnimatedText";
 import Link from "next/link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaYoutube,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
 
 // Komponen Sosial Media
 const SocialMediaLink = ({ href, icon: Icon, name }) => (
@@ -26,10 +21,26 @@ const SocialMediaLink = ({ href, icon: Icon, name }) => (
 
 export default function HeroSection() {
   const socialMedia = [
-    { name: "GitHub", href: "https://github.com/azzamfarrasruslani", icon: FaGithub },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/azzam-farras-ruslani/", icon: FaLinkedin },
-    { name: "YouTube", href: "https://youtube.com/@azzam_tif?si=A_lWJ-dPIhNTlRA-", icon: FaYoutube },
-    { name: "Email", href: "mailto:azzamfarrasrusl@gmail.com", icon: FaEnvelope },
+    {
+      name: "GitHub",
+      href: "https://github.com/azzamfarrasruslani",
+      icon: FaGithub,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/azzam-farras-ruslani/",
+      icon: FaLinkedin,
+    },
+    {
+      name: "YouTube",
+      href: "https://youtube.com/@azzam_tif?si=A_lWJ-dPIhNTlRA-",
+      icon: FaYoutube,
+    },
+    {
+      name: "Email",
+      href: "mailto:azzamfarrasrusl@gmail.com",
+      icon: FaEnvelope,
+    },
   ];
 
   // React Spring: Parallax XY untuk semua elemen
@@ -75,8 +86,7 @@ export default function HeroSection() {
           transform: xy.to((x, y) => `translate3d(${x / 5}px, ${y / 5}px, 0)`),
         }}
       >
-        Hello{" "}
-        <span className="ml-2 animate-wave inline-block">👋</span>
+        Hello <span className="ml-2 animate-wave inline-block">👋</span>
       </animated.h1>
 
       {/* 🟣 Animated Text with Parallax */}
@@ -96,7 +106,9 @@ export default function HeroSection() {
       <animated.div
         className="mt-8 flex flex-col sm:flex-row items-center gap-4"
         style={{
-          transform: xy.to((x, y) => `translate3d(${x / 10}px, ${y / 10}px, 0)`),
+          transform: xy.to(
+            (x, y) => `translate3d(${x / 10}px, ${y / 10}px, 0)`
+          ),
         }}
       >
         <Link
@@ -106,10 +118,11 @@ export default function HeroSection() {
           Lihat Proyek Saya 🚀
         </Link>
         <Link
-          href="#contact"
+          href="/cv-azzam-farras.pdf" // Pastikan file CV kamu berada di folder /public
+          download
           className="px-6 py-3 border border-[#D3E97A] text-[#D3E97A] font-semibold rounded-full hover:bg-[#D3E97A] hover:text-black transition duration-300"
         >
-          Hubungi Saya ✉️
+          Download CV 📄
         </Link>
       </animated.div>
 

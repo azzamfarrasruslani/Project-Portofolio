@@ -17,6 +17,7 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
+  // Tambah scroll effect untuk shadow navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -24,6 +25,15 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Disable scroll ketika menu mobile terbuka
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   return (
     <nav
@@ -44,7 +54,6 @@ export default function Navbar() {
               >
                 {item.name}
               </Link>
-              {/* Tambahkan separator kecuali item terakhir */}
               {index < navItems.length - 1 && (
                 <span className="text-gray-500 text-sm">/</span>
               )}
@@ -61,16 +70,16 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden mt-4 bg-black/90 rounded-xl shadow-md backdrop-blur-sm">
-          <ul className="flex flex-col items-center space-y-4 px-6 py-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 flex justify-center items-start pt-24 md:hidden transition-all duration-300">
+          <ul className="flex flex-col items-center space-y-6 text-white text-lg font-medium">
             {navItems.map((item, index) => (
               <li key={index}>
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-sm font-medium hover:text-[#D3E97A] transition duration-300"
+                  className="hover:text-[#D3E97A] transition duration-300"
                 >
                   {item.name}
                 </Link>

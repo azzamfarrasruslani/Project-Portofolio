@@ -17,45 +17,77 @@ export default function ContactPage() {
         {/* Info Kontak */}
         <div className="space-y-8">
           <p className="text-[#9CA3AF] text-lg leading-relaxed">
-            Punya project, ide kolaborasi, atau hanya ingin menyapa? Jangan ragu untuk menghubungi saya melalui email atau WhatsApp!
+            Punya project, ide kolaborasi, atau hanya ingin menyapa? Jangan ragu
+            untuk menghubungi saya melalui email atau WhatsApp!
           </p>
 
           <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-300">
-            <FontAwesomeIcon icon={faEnvelope} className="text-[#cceb6c] text-2xl" />
-            <span className="text-lg">azzam@example.com</span>
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className="text-[#cceb6c] text-2xl"
+            />
+            <span className="text-lg">azzamfarrasrusl@gmail.com</span>
           </div>
 
           <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-300">
-            <FontAwesomeIcon icon={faPhone} className="text-[#cceb6c] text-2xl" />
-            <span className="text-lg">+62 812-3456-7890</span>
+            <FontAwesomeIcon
+              icon={faPhone}
+              className="text-[#cceb6c] text-2xl"
+            />
+            <span className="text-lg">+62 822-1488-4329</span>
           </div>
         </div>
 
         {/* Form Kontak */}
         <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const message = e.target.message.value;
+
+            const subject = encodeURIComponent("Pesan dari Portfolio Website");
+            const body = encodeURIComponent(
+              `Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`
+            );
+
+            window.location.href = `mailto:azzamfarrasrusl@gmail.com?subject=${subject}&body=${body}`;
+          }}
           className="backdrop-blur-md bg-[#ffffff0d] border border-[#cceb6c]/30 rounded-2xl p-8 space-y-6 shadow-xl transition-all"
         >
           <div>
-            <label className="block text-sm font-medium text-[#cceb6c] mb-1">Nama Lengkap</label>
+            <label className="block text-sm font-medium text-[#cceb6c] mb-1">
+              Nama Lengkap
+            </label>
             <input
               type="text"
+              name="name"
+              required
               className="w-full p-3 rounded-md bg-[#000000] border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
               placeholder="Nama kamu"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[#cceb6c] mb-1">Email</label>
+            <label className="block text-sm font-medium text-[#cceb6c] mb-1">
+              Email
+            </label>
             <input
               type="email"
+              name="email"
+              required
               className="w-full p-3 rounded-md bg-[#000000] border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
               placeholder="kamu@example.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[#cceb6c] mb-1">Pesan</label>
+            <label className="block text-sm font-medium text-[#cceb6c] mb-1">
+              Pesan
+            </label>
             <textarea
+              name="message"
+              required
               rows={4}
               className="w-full p-3 rounded-md bg-[#000000] border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
               placeholder="Tulis pesan kamu di sini..."
