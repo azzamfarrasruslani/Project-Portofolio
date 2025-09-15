@@ -11,7 +11,7 @@ export default function EducationTimeline({ entries }) {
       transition={{ duration: 0.8 }}
     >
       <h3 className="text-3xl md:text-4xl font-bold text-center text-[#cceb6c]">
-        📌 Pendidikan & Pengalaman
+        📌 Education & Experience
       </h3>
 
       <div className="relative border-l-[3px] border-[#cceb6c]/30 ml-4 space-y-16">
@@ -35,7 +35,7 @@ export default function EducationTimeline({ entries }) {
             <div
               className={`bg-[#111111] border border-[#cceb6c]/20 rounded-2xl p-6 shadow-lg w-full`}
             >
-              {/* Tahun sebagai badge */}
+              {/* Year as badge */}
               <div className="mb-2">
                 <span className="inline-block bg-[#cceb6c] text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                   {item.time}

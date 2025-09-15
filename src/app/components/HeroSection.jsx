@@ -5,7 +5,7 @@ import AnimatedText from "@/app/components/AnimatedText";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
 
-// Komponen Sosial Media
+// Social Media Component
 const SocialMediaLink = ({ href, icon: Icon, name }) => (
   <Link
     href={href}
@@ -38,7 +38,7 @@ export default function HeroSection() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Fungsi untuk translate
+  // Translate function for parallax
   const translate = (factorX = 1, factorY = 1) =>
     `translate3d(${mousePos.x * factorX}px, ${mousePos.y * factorY}px, 0)`;
 
@@ -59,13 +59,13 @@ export default function HeroSection() {
         className="text-4xl md:text-6xl font-extrabold mb-4 text-[#D3E97A] flex items-center justify-center"
         style={{ transform: translate(20, 20) }}
       >
-        Hello <span className="ml-2 animate-wave inline-block">👋</span>
+        Hi there <span className="ml-2 animate-wave inline-block">👋</span>
       </h1>
 
       {/* 🟣 Animated Text with Parallax */}
       <div style={{ transform: translate(15, 15) }}>
         <AnimatedText
-          text="I'm Azzam FR, a passionate Informatics Engineering student who loves web development and creating amazing digital experiences."
+          text="I'm Azzam FR, a passionate Informatics Engineering student who loves building web applications and crafting engaging digital experiences."
           className="text-lg md:text-2xl font-light text-gray-300 text-center max-w-3xl"
           delay={0.2}
         />
@@ -77,14 +77,14 @@ export default function HeroSection() {
           href="#works"
           className="px-6 py-3 bg-[#D3E97A] text-black font-semibold rounded-full shadow-md hover:bg-lime-400 transition duration-300"
         >
-          Lihat Proyek Saya 🚀
+          View My Projects 🚀
         </Link>
         <Link
           href="/cv-azzam-farras.pdf"
           download
           className="px-6 py-3 border border-[#D3E97A] text-[#D3E97A] font-semibold rounded-full hover:bg-[#D3E97A] hover:text-black transition duration-300"
         >
-          Download CV 📄
+          Download My CV 📄
         </Link>
       </div>
 

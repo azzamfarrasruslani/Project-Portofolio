@@ -12,10 +12,23 @@ const highlights = [
 ];
 
 const education = [
-  { title: "MTs Sumatra Thawalib Parabek", time: "2017 - 2019", desc: "Pendidikan menengah berbasis pesantren dan sains." },
-  { title: "SMA Negeri 2 Lubuk Basung", time: "2019 - 2023", desc: "Jurusan IPA, aktif dalam organisasi dan teknologi." },
-  { title: "Politeknik Caltex Riau — Teknik Informatika", time: "2023 - Sekarang", desc: "Fokus pada pengembangan web, jaringan, dan software engineering." },
+  {
+    title: "MTs Sumatra Thawalib Parabek",
+    time: "2017 - 2019",
+    desc: "Secondary education based on pesantren (Islamic boarding school) and science."
+  },
+  {
+    title: "SMA Negeri 2 Lubuk Basung",
+    time: "2019 - 2023",
+    desc: "Science major, active in organizations and technology."
+  },
+  {
+    title: "Caltex Riau Polytechnic — Informatics Engineering",
+    time: "2023 - Present",
+    desc: "Focused on web development, networking, and software engineering."
+  },
 ];
+
 
 const certificate = {
   title: "MikroTik Certified Network Associate (MTCNA)",

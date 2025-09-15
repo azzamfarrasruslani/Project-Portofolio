@@ -1,70 +1,134 @@
 "use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin, faGithub, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = e.target;
+
+    if (!email.value.includes("@")) {
+      setStatus("⚠️ Please enter a valid email!");
+      return;
+    }
+
+    const subject = encodeURIComponent("Message from Portfolio Website");
+    const body = encodeURIComponent(
+      `Name: ${name.value}\nEmail: ${email.value}\n\nMessage:\n${message.value}`
+    );
+
+    window.location.href = `mailto:azzamfarrasrusl@gmail.com?subject=${subject}&body=${body}`;
+    setStatus("✅ Message opened in your email client!");
+    e.target.reset();
+  };
+
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black via-[#0a0a0a] to-black text-white px-6 py-20"
+      className="min-h-screen flex flex-col justify-center items-center bg-black text-white px-6 py-20"
     >
-      {/* Judul */}
-      <h2 className="text-3xl sm:text-5xl font-extrabold mb-12 text-[#cceb6c] text-center tracking-wide">
+      {/* Title */}
+      <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 text-[#cceb6c] text-center tracking-wide">
         📬 Get in Touch
       </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-[#cceb6c] to-lime-400 rounded-full mb-12" />
 
       <div className="grid md:grid-cols-2 gap-12 max-w-6xl w-full">
-        {/* Info Kontak */}
-        <div className="space-y-8">
+        {/* Contact Info Card */}
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          className="bg-[#111111] border border-[#cceb6c]/30 rounded-2xl p-8 space-y-6 shadow-xl transition-all"
+        >
           <p className="text-[#9CA3AF] text-lg leading-relaxed">
-            Punya project, ide kolaborasi, atau hanya ingin menyapa? Jangan ragu
-            untuk menghubungi saya melalui email atau WhatsApp!
+            Have a project, collaboration idea, or just want to say hi? Feel free
+            to reach out via email, phone, or social media!
           </p>
 
-          <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-300">
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="text-[#cceb6c] text-2xl"
-            />
-            <span className="text-lg">azzamfarrasrusl@gmail.com</span>
-          </div>
+          {/* Email */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-4 cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faEnvelope} className="text-[#cceb6c] text-2xl" />
+            <span className="text-lg break-all">azzamfarrasrusl@gmail.com</span>
+          </motion.div>
 
-          <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-300">
-            <FontAwesomeIcon
-              icon={faPhone}
-              className="text-[#cceb6c] text-2xl"
-            />
+          {/* Phone */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-4 cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faPhone} className="text-[#cceb6c] text-2xl" />
             <span className="text-lg">+62 822-1488-4329</span>
+          </motion.div>
+
+          {/* Location */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-4 cursor-default"
+          >
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="text-[#cceb6c] text-2xl" />
+            <span className="text-lg">Pekanbaru, Indonesia</span>
+          </motion.div>
+
+          {/* Availability */}
+          <div className="text-[#9CA3AF] text-sm">
+            <p>Available: Mon – Fri, 09:00 – 18:00</p>
           </div>
-        </div>
 
-        {/* Form Kontak */}
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const name = e.target.name.value;
-            const email = e.target.email.value;
-            const message = e.target.message.value;
+          {/* Social Media Links */}
+          <div className="flex items-center gap-4 mt-2">
+            <a
+              href="https://linkedin.com/in/azzamfarrasruslani"
+              target="_blank"
+              className="text-[#cceb6c] hover:text-lime-400 transition"
+            >
+              <FontAwesomeIcon icon={faLinkedin} size="2x" />
+            </a>
+            <a
+              href="https://github.com/azzamfarrasruslani"
+              target="_blank"
+              className="text-[#cceb6c] hover:text-lime-400 transition"
+            >
+              <FontAwesomeIcon icon={faGithub} size="2x" />
+            </a>
+            <a
+              href="https://wa.me/6282214884329"
+              target="_blank"
+              className="text-[#cceb6c] hover:text-lime-400 transition"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+            </a>
+          </div>
 
-            const subject = encodeURIComponent("Pesan dari Portfolio Website");
-            const body = encodeURIComponent(
-              `Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`
-            );
+          {/* Small CTA */}
+          <p className="text-[#cceb6c] text-sm mt-4 italic">
+            📬 Send me a message anytime!
+          </p>
+        </motion.div>
 
-            window.location.href = `mailto:azzamfarrasrusl@gmail.com?subject=${subject}&body=${body}`;
-          }}
-          className="backdrop-blur-md bg-[#ffffff0d] border border-[#cceb6c]/30 rounded-2xl p-8 space-y-6 shadow-xl transition-all"
+        {/* Contact Form Card */}
+        <motion.form
+          onSubmit={handleSubmit}
+          whileHover={{ scale: 1.02 }}
+          className="bg-[#111111] border border-[#cceb6c]/30 rounded-2xl p-8 space-y-6 shadow-xl transition-all"
         >
           <div>
             <label className="block text-sm font-medium text-[#cceb6c] mb-1">
-              Nama Lengkap
+              Full Name
             </label>
             <input
               type="text"
               name="name"
               required
-              className="w-full p-3 rounded-md bg-[#000000] border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
-              placeholder="Nama kamu"
+              className="w-full p-3 rounded-md bg-black border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
+              placeholder="Your name"
             />
           </div>
 
@@ -76,31 +140,35 @@ export default function ContactPage() {
               type="email"
               name="email"
               required
-              className="w-full p-3 rounded-md bg-[#000000] border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
-              placeholder="kamu@example.com"
+              className="w-full p-3 rounded-md bg-black border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
+              placeholder="you@example.com"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-[#cceb6c] mb-1">
-              Pesan
+              Message
             </label>
             <textarea
               name="message"
               required
               rows={4}
-              className="w-full p-3 rounded-md bg-[#000000] border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
-              placeholder="Tulis pesan kamu di sini..."
+              className="w-full p-3 rounded-md bg-black border border-[#cceb6c]/30 text-white placeholder-gray-400 focus:border-[#cceb6c] focus:outline-none transition"
+              placeholder="Write your message here..."
             />
           </div>
 
-          <button
+          <motion.button
             type="submit"
-            className="w-full py-3 rounded-md bg-[#cceb6c] text-black font-bold hover:bg-lime-400 transition duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full py-3 rounded-md bg-gradient-to-r from-[#cceb6c] to-lime-400 text-black font-bold shadow-md hover:shadow-xl transition duration-300"
           >
-            Kirim Pesan ✉️
-          </button>
-        </form>
+            Send Message ✉️
+          </motion.button>
+
+          {status && <p className="mt-2 text-sm text-green-400">{status}</p>}
+        </motion.form>
       </div>
     </section>
   );

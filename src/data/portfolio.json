@@ -1,29 +1,29 @@
 [
   {
-    "title": "Sistem Surat Paket",
+    "title": "Package and Mail System",
     "image": "/images/WEB-Surpa.png",
-    "description": "Aplikasi untuk mengelola surat dan paket masuk dengan fitur tracking real-time.",
+    "description": "An application to manage incoming mails and packages with real-time tracking features.",
     "liveDemo": "#",
     "github": "#",
     "techStack": ["PHP", "MySQL", "Tailwind"],
-    "date": "Januari 2023"
+    "date": "January 2023"
   },
   {
-    "title": "Website UMKM",
+    "title": "SME Website",
     "image": "/images/WEB-UMKM.png",
-    "description": "Website profil dan e-commerce untuk UMKM dengan fitur pemesanan produk.",
+    "description": "A profile and e-commerce website for SMEs with product ordering functionality.",
     "liveDemo": "#",
     "github": "#",
     "techStack": ["Laravel", "MySQL", "Tailwind"],
-    "date": "Juli 2023"
+    "date": "July 2023"
   },
   {
-    "title": "Manajemen Kandang Bebek",
+    "title": "Duck Farm Management",
     "image": "/images/WEB-ManBebek.png",
-    "description": "Sistem monitoring dan manajemen kandang bebek untuk pencatatan produksi telur.",
+    "description": "A system for monitoring and managing duck farms for egg production tracking.",
     "liveDemo": "#",
     "github": "#",
     "techStack": ["Laravel", "React", "Tailwind"],
-    "date": "Oktober 2023"
+    "date": "October 2023"
   }
 ]
