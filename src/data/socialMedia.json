@@ -1,0 +1,27 @@
+[
+  {
+    "name": "GitHub",
+    "href": "https://github.com/azzamfarrasruslani",
+    "icon": "FaGithub"
+  },
+  {
+    "name": "LinkedIn",
+    "href": "https://www.linkedin.com/in/azzam-farras-ruslani/",
+    "icon": "FaLinkedin"
+  },
+  {
+    "name": "YouTube",
+    "href": "https://youtube.com/@azzam_tif?si=A_lWJ-dPIhNTlRA-",
+    "icon": "FaYoutube"
+  },
+  {
+    "name": "Email",
+    "href": "mailto:azzamfarrasrusl@gmail.com",
+    "icon": "FaEnvelope"
+  },
+  {
+    "name": "WhatsApp",
+    "href": "https://wa.me/6281234567890",
+    "icon": "FaWhatsapp"
+  }
+]

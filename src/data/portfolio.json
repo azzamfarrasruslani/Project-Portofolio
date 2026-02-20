@@ -25,5 +25,14 @@
     "github": "#",
     "techStack": ["Laravel", "React", "Tailwind"],
     "date": "October 2023"
+  },
+  {
+    "title": "AI Image Generator",
+    "image": "/images/WEB-Surpa.png",
+    "description": "Experimental AI tool to generate creative artwork from text prompts using OpenAI API.",
+    "liveDemo": "#",
+    "github": "#",
+    "techStack": ["Next.js", "OpenAI", "Tailwind"],
+    "date": "December 2023"
   }
 ]

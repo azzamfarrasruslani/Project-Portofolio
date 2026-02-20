@@ -1,0 +1,31 @@
+[
+  {
+    "category": "Frontend",
+    "description": "Building beautiful and responsive user interfaces.",
+    "items": [
+      { "name": "HTML", "icon": "SiHtml5" },
+      { "name": "CSS", "icon": "SiCss3" },
+      { "name": "JavaScript", "icon": "SiJavascript" },
+      { "name": "React", "icon": "SiReact" },
+      { "name": "Next.js", "icon": "SiNextdotjs" },
+      { "name": "Tailwind", "icon": "SiTailwindcss" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "description": "Server-side logic and database interaction.",
+    "items": [
+      { "name": "Node.js", "icon": "SiNodedotjs" },
+      { "name": "Laravel", "icon": "SiLaravel" }
+    ]
+  },
+  {
+    "category": "Tools",
+    "description": "Tools to support development productivity.",
+    "items": [
+      { "name": "Git", "icon": "SiGit" },
+      { "name": "Figma", "icon": "SiFigma" },
+      { "name": "VSCode", "icon": "DiVisualstudio" }
+    ]
+  }
+]

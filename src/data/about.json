@@ -1,0 +1,45 @@
+{
+  "highlights": [
+    {
+      "icon": "faBolt",
+      "text": "Fast Learner"
+    },
+    {
+      "icon": "faCode",
+      "text": "Clean & Efficient Code"
+    },
+    {
+      "icon": "faUsers",
+      "text": "Great Team Player"
+    },
+    {
+      "icon": "faRocket",
+      "text": "Innovative Problem Solver"
+    }
+  ],
+  "education": [
+    {
+      "title": "Caltex Riau Polytechnic — Informatics Engineering",
+      "time": "2023 - Present",
+      "desc": "Focused on web development, networking, and software engineering."
+    },
+    {
+      "title": "SMA Negeri 2 Lubuk Basung",
+      "time": "2019 - 2023",
+      "desc": "Science major, active in organizations and technology."
+    },
+    {
+      "title": "MTs Sumatra Thawalib Parabek",
+      "time": "2017 - 2019",
+      "desc": "Secondary education based on pesantren (Islamic boarding school) and science."
+    }
+  ],
+  "certificate": {
+    "title": "MikroTik Certified Network Associate (MTCNA)",
+    "issuer": "MikroTik",
+    "date": "Maret 2024",
+    "credentialId": "MTCNA-2507NA1349",
+    "link": "https://mikrotik.com/training/certificates/c481349c629e9fc62c9e",
+    "image": "/images/sertifikat-mtcna.jpg"
+  }
+}

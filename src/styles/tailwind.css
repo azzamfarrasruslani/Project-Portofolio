@@ -1,9 +1,86 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-customBlack-100: #121212;
-  --color-customBlue-100: #0C1821;
+  /* Overriding Lime Palette with Teal (#02d590) */
+  --color-lime-50: #effdf8;
+  --color-lime-100: #d6f8ec;
+  --color-lime-200: #b0f2db;
+  --color-lime-300: #7ae6c5;
+  --color-lime-400: #02d590; /* User's Request */
+  --color-lime-500: #00b97b;
+  --color-lime-600: #009665;
+  --color-lime-700: #007853; /* High Contrast Text */
+  --color-lime-800: #065f44;
+  --color-lime-900: #064e39;
+  --color-lime-950: #022c21;
 
+  /* New Design System Colors Mapped to New Palette */
+  --color-deep-lime: #007853; /* lime-700 */
+  --color-fresh-lime: #02d590; /* lime-400 */
+  --color-mist-lime: #d6f8ec; /* lime-100 */
 
- 
+  --color-rich-black: #111827;
+  --color-slate-body: #4b5563;
+  --color-soft-gray: #f9fafb;
+
+  /* Legacy mapping */
+  --color-customBlack-100: #ffffff;
+  --color-customBlue-100: #f3f4f6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #111827; /* Gray 900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6f8ec; /* Lime 100 */
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #065f44; /* Lime 800 */
+  border: 2px solid #111827; /* Gray 900 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #02d590; /* Lime 400 */
+}
+
+/* Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
